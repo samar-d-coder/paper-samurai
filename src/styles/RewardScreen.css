@@ -1,0 +1,131 @@
+.reward-screen {
+  animation: appear 0.5s ease-out forwards;
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.reward-title {
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.7);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.reward-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.reward-item::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(30deg);
+  animation: shine 3s infinite;
+}
+
+.reward-item.border-legendary {
+  border-color: #fbbf24;
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+}
+
+.reward-item.border-rare {
+  border-color: #60a5fa;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+}
+
+.reward-item.border-uncommon {
+  border-color: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.5);
+}
+
+.reward-item.border-common {
+  border-color: #9ca3af;
+}
+
+.claim-button {
+  transition: all 0.3s ease;
+}
+
+.claim-button:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.7);
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px rgba(251, 191, 36, 0.7);
+  }
+  to {
+    text-shadow: 0 0 15px rgba(251, 191, 36, 0.9), 0 0 20px rgba(251, 191, 36, 0.5);
+  }
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+
+@keyframes rewardAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.legendary-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.legendary-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #fbbf24;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.3;
+  }
+}

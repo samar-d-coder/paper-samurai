@@ -1,0 +1,99 @@
+/* Ultimate Ability Animation Effects */
+
+@keyframes ultimate-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.8; }
+}
+
+@keyframes ultimate-glow {
+  0% { box-shadow: 0 0 5px 2px rgba(255, 215, 0, 0.5); }
+  50% { box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.8); }
+  100% { box-shadow: 0 0 5px 2px rgba(255, 215, 0, 0.5); }
+}
+
+@keyframes ultimate-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes ultimate-shockwave {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes ultimate-particle-float {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(-100px) translateX(var(--x-offset)) rotate(360deg); opacity: 0; }
+}
+
+.ultimate-ready {
+  animation: ultimate-pulse 2s infinite ease-in-out, ultimate-glow 2s infinite ease-in-out;
+}
+
+.ultimate-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.ultimate-button:hover {
+  transform: scale(1.05);
+}
+
+.ultimate-button:before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,215,0,0.8) 0%, rgba(255,215,0,0) 70%);
+  animation: ultimate-rotate 10s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.ultimate-button:hover:before {
+  opacity: 0.5;
+}
+
+.ultimate-shockwave {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.8) 0%, rgba(255,215,0,0) 70%);
+  animation: ultimate-shockwave 1s ease-out forwards;
+}
+
+.ultimate-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,1) 0%, rgba(255,165,0,0.8) 100%);
+  animation: ultimate-particle-float 1.5s ease-out forwards;
+}
+
+.ultimate-charge-meter {
+  position: relative;
+  overflow: hidden;
+  border-radius: 9999px;
+}
+
+.ultimate-charge-meter .meter-fill {
+  transition: width 0.3s ease-out;
+}
+
+.ultimate-charge-meter.ready .meter-fill {
+  animation: ultimate-pulse 2s infinite ease-in-out;
+  background: linear-gradient(90deg, #ffd700, #ff8c00);
+}
+
+.ultimate-icon {
+  display: inline-block;
+}
+
+.ultimate-icon.ready {
+  animation: ultimate-pulse 2s infinite ease-in-out;
+  filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.8));
+}
