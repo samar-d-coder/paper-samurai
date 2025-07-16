@@ -30,7 +30,7 @@ Paper Samurai is an exciting origami-themed combat game built with React and Typ
 
 ## Contact
 
-For any questions or feedback, please open an issue or contact the maintainer at [your.email@example.com](mailto:samarhack689@gmail.com).
+For any questions or feedback, please open an issue or contact the maintainer at [samar-XD](mailto:samarhack689@gmail.com).
 
 Enjoy the game and may your paper folds be ever precise!
 
